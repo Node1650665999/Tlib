@@ -695,7 +695,7 @@ class Wx
      */
     public function access_token($appid, $appsecret)
     {
-        /*$url = '你的token服务器地址，该接口你需要请求微信服务器生成token(接口为wx_access_token)，然后保存';
+        /*$url = '你的token服务器地址，该接口你需要请求微信服务器生成token(接口为cache_access_token)，然后保存';
         $param['appid']     = $appid;
         $param['appsecret'] = $appsecret;
 
@@ -719,7 +719,7 @@ class Wx
      * @param $appsecret
      * @return mixed
      */
-    public function wx_access_token($appid, $appsecret, $file)
+    public function cache_access_token($appid, $appsecret, $file)
     {
         $url = "https://api.weixin.qq.com/cgi-bin/token";
 
@@ -743,10 +743,10 @@ class Wx
         {
             $wx_data = $res['data'];
             $cache =
-                [
-                    'access_token' => $wx_data['access_token'],
-                    'expires_in'   => time() + $wx_data['expires_in'] -100
-                ];
+            [
+                'access_token' => $wx_data['access_token'],
+                'expires_in'   => time() + $wx_data['expires_in'] -100
+            ];
             file_put_contents($file, json_encode($cache));
         }
 

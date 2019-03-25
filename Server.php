@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by TCL
- * User: Administrator
- * Date: 2018/8/24
- * Time: 15:59
- */
 
 namespace Lib;
 
